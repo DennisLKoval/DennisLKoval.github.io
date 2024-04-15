@@ -1,0 +1,667 @@
+<DOCTYPE html>
+<html>
+<body>
+<style>
+body {
+ text-align:center;
+ font-family:"Lucida Console", Monospace;
+ background-color:black;
+ color:white;
+}
+
+.tabBorder {
+ background-color:black;
+ border-style:solid;
+ border-color:red;
+ border-width:2px;
+ font-family:"Lucida Console", Monospace;
+ color:white;
+ padding:16px 32px;
+ text-align:center;
+ cursor:pointer;
+}
+
+.tabContentBorder {
+  border-style:solid;
+  border-color:red;
+  border-width:2px;
+  width:50%;
+  margin:auto;
+  display:block;
+ }
+ 
+.keyBindStyle {
+ width:5%;
+ border-style:solid;
+ border-color:red;
+ border-width:2px;
+ font-family:"Lucida Console", Monospace;
+}
+
+.textInputStyle {
+ border-style:solid;
+ border-color:red;
+ border-width:2px;
+ font-family:"Lucida Console", Monospace;
+ 
+}
+</style>
+
+<h1>SETTINGS</h1>
+
+
+<!-- simple tabs -->
+<div class="tabs"></div>
+
+<button class="tablinks tabBorder" onclick="openTab(event, 'Gameplay')">Gameplay</button>
+<button class="tablinks tabBorder" onclick="openTab(event, 'Controls')">Controls</button>
+<button class="tablinks tabBorder" onclick="openTab(event, 'Audio')">Audio</button>
+<button class="tablinks tabBorder" onclick="openTab(event, 'Video')">Video</button>
+<button class="tablinks tabBorder" onclick="openTab(event, 'Multiplayer')">Multiplayer</button>
+<button class="tablinks tabBorder" onclick="openTab(event, 'User Interface')">User Interface</button>
+</div>
+
+<!-- Tab content -->
+<div id="Gameplay" class="tabcontent tabContentBorder">
+  <h3>Gameplay</h3>
+   
+    <div class="slidecontainer"> 
+	<p>Default field of View: <span id="fieldOfViewSlider"></span></p>
+	<input type="range" min="60" max="120" value="100" class="slider" id="fieldOfView">
+	</div>
+	
+    <div class="slidecontainer"> 
+	<p>Weapon Sway: <span id="weaponSwaySlider"></span></p>
+	<input type="range" min="0" max="100" value="100" class="slider" id="weaponSway">
+	</div>
+	
+<p>Toggle Subtitles</p>
+   <input type="radio" id="toggleSubtitlesOn" name="GameplayMenu2" Value="On">
+   <label for="toggleSubtitlesOn">On</label>
+   <input type="radio" checked="checked" id="toggleSubtitlesOff" name="GameplayMenu2" Value="Off">
+   <label for="toggleSubtitlesOff">Off</label><br>
+	
+<p>Toggle Overworld Mission Markers</p>
+   <input type="radio" checked="checked" id="toggleOMMOn" name="GameplayMenu3" Value="On">
+   <label for="toggleOMMOn">On</label>
+   <input type="radio" id="toggleOMMOff" name="GameplayMenu3" Value="Off">
+   <label for="toggleOMMOff">Off</label><br>
+   
+<p>Skip Tutorial</p>
+   <input type="radio" id="toggleTutorialOn" name="GameplayMenu4" Value="On">
+   <label for="toggleTutorialOn">On</label>
+   <input type="radio" checked="checked" id="toggleTutorialOff" name="GameplayMenu4" Value="Off">
+   <label for="toggleTutorialOff">Off</label><br>
+   
+<p>Automatically Skip Cutscenes</p>
+   <input type="radio" id="toggleCutsceneSkipOn" name="GameplayMenu5" Value="On">
+   <label for="toggleCutSceneSkipOn">On</label>
+   <input type="radio" checked="checked" id="toggleCutSceneSkipOff" name="GameplayMenu5" Value="Off">
+   <label for="toggleCutSceneSkipOff">Off</label>
+<p>* Cutscenes can always be skipped manually when "E" is held down for two or more seconds<br>
+  
+<p>Flickering Lights</p>
+   <input type="radio" checked="checked" id="toggleLightFlickerOn" name="GameplayMenu6" Value="On">
+   <label for="toggleLightFlickerOn">On</label>
+   <input type="radio" id="toggleLightFlickerOff" name="GameplayMenu6" Value="Off">
+   <label for="toggleLightFlickerOff">Off</label><br>
+   
+<p>Language Select </p>
+	<input type="radio" checked="checked" id="languageSelectEnglish" name="GameplayMenu1" value="English">
+	<label for="languageSelectEnglish">English</label><br>
+	<input type="radio" id="languageSelectHTML" name="GameplayMenu1" value="Other">
+	<label for="languageSelectHTML">HTML</label><br>
+	<input type="radio" id="languageSelectJavascript" name="GameplayMenu1" value="Other">
+	<label for="languageSelectJavascript">Javascript</label><br>
+
+
+<p>Bloodshed</p>
+   <input type="radio" id="bloodshedHigh" name="GameplayMenu7" Value="High">
+   <label for="bloodshedHigh">Very High</label><br>
+   <input type="radio" checked="checked" id="bloodshedLow" name="GameplayMenu7" Value="Low">
+   <label for="bloodshedLow">High</label><br>
+   <input type="radio" disabled="disabled" id="bloodshedNone" name="GameplayMenu7" Value="None">
+   <label for="bloodshedNone">None</label><br>
+   
+<p>Enable High Contrast Mode</p>
+   <input type="radio" id="highContrastOn" name="GameplayMenu8" Value="On">
+   <label for="highContrastOn">On</label>
+   <input type="radio" checked="checked" id="highContrastOff" name="GameplayMenu8" Value="Off">
+   <label for="highContrastOff">Off</label><br>
+   
+<p>More Visible Enemy Markers</p>
+   <input type="radio" id="moreVisibleEnemiesOn" name="GameplayMenu9" Value="On">
+   <label for="moreVisibleEnemiesOn">On</label>
+   <input type="radio" checked="checked" id="moreVisibleEnemiesOff" name="GameplayMenu9" Value="Off">
+   <label for="moreVisibleEnemiesOff">Off</label><br>
+   
+<p>Target Lock</p>
+   <input type="radio" id="targetLockOn" name="GameplayMenu10" Value="On">
+   <label for="targetLockOn">On</label>
+   <input type="radio" checked="checked" id="targetLockOff" name="GameplayMenu10" Value="Off">
+   <label for="targetLockOff">Off</label><br>
+
+   </br>
+</div>
+
+<div id="Controls" class="tabcontent tabContentBorder">
+  <h3>Controls</h3>
+  
+	<div class="slidecontainer"> 
+	<p>Mouse Senstivity: <span id="mouseSensitivitySlider"></span></p>
+	<input type="range" min="1" max="20" value="10" class="slider" id="mouseSensitivity">
+	</div>
+	
+<p>Keyboard and Mouse Bindings</p>
+	<label for="moveForwardBind">Move Forward:</label>
+		<input type="text" class="keyBindStyle" value="W" id="moveForwardBind" maxlength="3" name="moveForwardBind"><br>
+	<label for="moveBackwardBind">Move Backward:</label>
+		<input type="text" class="keyBindStyle" value="S" id="moveBackwardBind" maxlength="3" name="moveBackwardBind"><br>
+	<label for="moveLeftBind">Move Left:</label>
+		<input type="text" class="keyBindStyle" value="A" id="moveLeftBind" maxlength="3" name="moveLeftBind"><br>
+	<label for="moveRightBind">Move Right:</label>
+		<input type="text" class="keyBindStyle" value="D" id="moveRightBind" maxlength="3" name="moveRightBind"><br>
+	<label for="crouchBind">Crouch:</label>
+		<input type="text" class="keyBindStyle" value="LC (Left Control)" id="crouchBind" maxlength="3" name="crouchBind"><br>
+	<label for="jumpBind">Jump:</label>
+		<input type="text" class="keyBindStyle" value="SB (Space Bar)" id="jumpBind" maxlength="3" name="jumpBind"><br>
+	<label for="dodgeBind">Dodge:</label>
+		<input type="text" class="keyBindStyle" value="Q" id="dodgeBind" maxlength="3" name="dodgeBind"><br>
+	<label for="sprintBind">Sprint:</label>
+		<input type="text" class="keyBindStyle" value="LS (Left Shift)" id="sprintBind" maxlength="3" name="sprintBind"><br>
+	<label for="primaryBind">Pitchfork Primary:</label>
+		<input type="text" class="keyBindStyle" value="M1 (Mouse Left Click)" id="primaryBind" maxlength="3" name="primaryBind"><br>
+	<label for="secondaryBind">Pitchfork Secondary:</label>
+		<input type="text" class="keyBindStyle" value="M2 (Mouse Right Click)"  id="secondaryBind" maxlength="3" name="secondaryBind"><br>
+	<label for="reloadPitchfork">Reload Pitchfork:</label>
+		<input type="text" class="keyBindStyle" value="R" id="reloadPitchfork" maxlength="3" name="reloadPitchfork"><br>
+	<label for="swapPitchfork">Swap Pitchfork:</label>
+		<input type="text" class="keyBindStyle" value="SW (Mouse Scroll Wheel)" id="swapPitchfork" maxlength="3" name="swapPitchfork"><br>
+	<label for="specialMoveBind">Special Move:</label>
+		<input type="text" class="keyBindStyle" value="F" id="specialMoveBind" maxlength="3" name="specialMoveBind"><br>
+	<label for="ultimateBind">Ultimate:</label>
+		<input type="text" class="keyBindStyle" value="G" id="ultimateBind" maxlength="3" name="ultimateBind"><br>
+	<label for="interactBind">Interact and Equip:</label>
+		<input type="text" class="keyBindStyle" value="E" id="interactBind" maxlength="3" name="interactBind"><br>
+	<label for="dropItemBind">Drop Item:</label>
+		<input type="text" class="keyBindStyle" value="X" id="dropItemBind" maxlength="3" name="dropItemBind"><br>
+	<label for="pingBind">Ping:</label>
+		<input type="text" class="keyBindStyle" value="T" id="pingBind" maxlength="3" name="pingBind"><br>
+	<label for="emoteBind">Emote:</label>
+		<input type="text" class="keyBindStyle" value="Z" id="emoteBind" maxlength="3" name="emoteBind"><br>
+	<label for="pushToTalkBind">Push to Talk:</label>
+		<input type="text" class="keyBindStyle" value="V" id="pushToTalkBind" maxlength="3" name="pushToTalkBind"><br>
+	<label for="pauseGameBind">Pause Game:</label>
+		<input type="text" class="keyBindStyle" value="esc" id="pauseGameBind" maxlength="3" name="pauseGameBind"><br>
+	<label for="openMenuBind">Open Menu:</label>
+		<input type="text" class="keyBindStyle" value="tab" id="openMenuBind" maxlength="3" name="openMenuBind"><br>
+	<label for="openMapBind">Open Map:</label>
+		<input type="text" class="keyBindStyle" value="M" id="openMapBind" maxlength="3" name="openMapBind"><br>
+	
+<p>Toggle Hold to Sprint</p>
+	<input type="radio" checked="checked" id="pushToSprintOn" name="KeyboardandMouseBindings1" Value="On">
+	<label for="pushToSprintOn">Push To Sprint</label><br>
+	<input type="radio" id="pressToSprintOn" name="KeyboardandMouseBindings1" Value="On">
+	<label for="pressToSprintOn">Press To Sprint</label><br>
+	
+<p>Toggle Hold to Crouch</p>
+	<input type="radio" checked="checked" id="pushToCrouchOn" name="KeyboardandMouseBindings2" Value="On">
+	<label for="pushToCrouchOn">Push To Crouch</label><br>
+	<input type="radio" id="pressToCrouchOn" name="KeyboardandMouseBindings2" Value="On">
+	<label for="pressToCrouchOn">Press To Crouch</label><br>
+	
+<p>Invert Y Axis</p>
+	<input type="radio" id="invertYAxisOn" name="KeyboardandMouseBindings3" Value="On">
+	<label for="invertYAxisOn">On</label><br>
+	<input type="radio" checked="checked" id="invertYAxisOff" name="KeyboardandMouseBindings3" Value="Off">
+	<label for="invertYAxisOff">Off</label><br>
+	
+<p>Invert X Axis</p>
+	<input type="radio" id="invertXAxisOn" name="KeyboardandMouseBindings4" Value="On">
+	<label for="invertXAxisOn">On</label><br>
+	<input type="radio" checked="checked" id="invertXAxisOff" name="KeyboardandMouseBindings4" Value="Off">
+	<label for="invertXAxisOff">Off</label><br>
+	
+<p>Invert Scroll Wheel</p>
+	<input type="radio" id="invertSWOn" name="KeyboardandMouseBindings5" Value="On">
+	<label for="invertSWOn">On</label><br>
+	<input type="radio" checked="checked" id="invertSWOff" name="KeyboardandMouseBindings5" Value="Off">
+	<label for="invertSWOff">Off</label><br>
+	
+	</br>
+
+<p>Controller Bindings</p>
+<p>* Controller Support has not yet been enabled *</p>
+
+<br>
+</br>
+</div>
+
+
+<div id="Audio" class="tabcontent tabContentBorder">
+  <h3>Audio</h3>
+ 
+    <div class="slidecontainer"> 
+	<p>Master Volume: <span id="masterVolumeSlider"></span></p>
+	<input type="range" min="1" max="100" value="100" class="slider" id="masterVolume">
+	</div>
+	
+	<div class="slidecontainer"> 
+	<p>Music Volume: <span id="musicVolumeSlider"></span></p>
+	<input type="range" min="1" max="100" value="100" class="slider" id="musicVolume">
+	</div>
+	
+	<div class="slidecontainer"> 
+	<p>SFX Volume: <span id="sfxSlider"></span></p>
+	<input type="range" min="1" max="100" value="100" class="slider" id="sfx">
+	</div>
+	
+	<div class="slidecontainer"> 
+	<p>Character Volume: <span id="charVolumeSlider"></span></p>
+	<input type="range" min="1" max="100" value="100" class="slider" id="charVolume">
+	</div>
+	
+	<br>
+	</br>
+	
+	<label for="inputDevice">Audio Input Device:</label>
+	<input type="text" class="textInputStyle" value="Default - Microphone Array()" id="inputDevice" name="inputDevice"><br>
+	
+	<label for="outputDevice">Audio Output Device:</label>
+	<input type="text" class="textInputStyle" value="Default - System Speakers()" id="outputDevice" name="outputDevice">
+	
+	<br>
+	</br>
+	
+<p>Toggle Robot Assistant Voice</p>
+	<input type="radio" checked="checked" id="robotAssistantVoiceOn" name="AudioMenu1" Value="On">
+	<label for="robotAssistantVoiceOn">On</label>
+	<input type="radio" id="robotAssistantVoiceOff" name="AudioMenu1" Value="Off">
+	<label for="robotAssistantVoiceOff">Off</label>
+	
+<p>Voice Detection</p>
+	<input type="radio" checked="checked" id="pushToTalkOn" name="AudioMenu2" Value="On">
+	<label for="pushToTalkOn">Push To Talk</label><br>
+	<input type="radio" id="pressToTalkOn" name="AudioMenu2" Value="On">
+	<label for="pressToTalkOn">Press To Talk</label><br>
+	<input type="radio" id="voiceActivationOn" name="AudioMenu2" Value="On">
+	<label for="voiceActivationOn">Voice Activation</label><br>
+	
+<br>
+</br>
+</div>
+
+
+<div id="Video" class="tabcontent tabContentBorder">
+  <h3>Video</h3>
+
+<p>Resolution</p>
+	<input type="radio"id="resolution1" name="VideoMenu1" Value="On">
+	<label for="resolution1">3840 x 1600</label><br>
+	<input type="radio" checked="checked" id="resolution2" name="VideoMenu1" Value="On">
+	<label for="resolution2">1440 x 900</label><br>
+	<input type="radio" id="resolution3" name="VideoMenu1" Value="On">
+	<label for="resolution3">1280 x 800</label><br>
+	<input type="radio" id="resolution4" name="VideoMenu1" Value="On">
+	<label for="resolution4">1024 x 640</label><br>
+	<input type="radio" id="resolution5" name="VideoMenu1" Value="On">
+	<label for="resolution5">720 x 450</label><br>
+	
+<p>Screen Mode</p>
+	<input type="radio" id="windowedMode" name="VideoMenu2" Value="On">
+	<label for="windowedMode">Windowed</label><br>
+	<input type="radio" checked="checked" id="fullScreenMode" name="VideoMenu2" Value="On">
+	<label for="fullScreenMode">Full Screen</label><br>
+	
+<p>Toggle Vsync</p>
+	<input type="radio" checked="checked" id="vsyncOn" name="VideoMenu3" Value="On">
+	<label for="vsyncOn">On</label>
+	<input type="radio" id="vsyncOff" name="VideoMenu3" Value="Off">
+	<label for="vsyncOff">Off</label><br>
+	
+<p>DX12</p>
+	<input type="radio" id="DX12ToggleOn" name="VideoMenu4" Value="On">
+	<label for="DX12ToggleOn">On</label>
+	<input type="radio" checked="checked" id="DX12ToggleOff" name="VideoMenu4" Value="Off">
+	<label for="DX12ToggleOff">Off</label><br>
+
+<p>Antialiasing</p>
+	<input type="radio" checked="checked" id="antiAliasingFXAA" name="VideoMenu5" Value="On">
+	<label for="antialiasingFXAA">FXAA</label><br>
+	<input type="radio" id="antiAliasingTAA" name="VideoMenu5" Value="On">
+	<label for="antialiasingTaa">TAA</label><br>
+	<input type="radio" id="AntialiasingOff" name="VideoMenu5" Value="Off">
+	<label for="antialiasingOff">Off</label><br>
+	
+<p>Overall Game Quality</p>
+	<input type="radio" id="overallGameQualityExtreme" name="VideoMenu6" Value="On">
+	<label for="overallGameQualityExtreme">Extreme</label><br>
+	<input type="radio" checked="checked" id="overallGameQualityHigh" name="VideoMenu6" Value="On">
+	<label for="overallGameQualityHigh">High</label><br>
+	<input type="radio" id="overallGameQualityMedium" name="VideoMenu6" Value="On">
+	<label for="overallGameQualityMedium">Medium</label><br>
+	<input type="radio" id="overallGameQualityPoor" name="VideoMenu6" Value="On">
+	<label for="overallGameQualityPoor">Poor</label><br>
+	
+<p>Particle Effects</p>
+	<input type="radio" id="particleEffectsExtreme" name="VideoMenu7" Value="On">
+	<label for="particleEffectsExtreme">Extreme</label><br>
+	<input type="radio" checked="checked" id="particleEffectsHigh" name="VideoMenu7" Value="On">
+	<label for="particleEffectsHigh">High</label><br>
+	<input type="radio" id="particleEffectsMedium" name="VideoMenu7" Value="On">
+	<label for="particleEffectsMedium">Medium</label><br>
+	<input type="radio" id="particleEffectsPoor" name="VideoMenu7" Value="On">
+	<label for="particleEffectsPoor">Poor</label><br>
+	
+<p>Just to make sure you were paying attention to each setting, which one was mispelled?</p>
+<p style="color:red"><b>You wouldn't want the Eterno-pocalypse to happen, would you?</p>
+	<input type="radio" id="toggleSubtitlesAnswer" name="VideoMenu8" Value="On">
+	<label for="toggleSubtitlesAnswer">Toggle Subtitles</label><br>
+	<input type="radio" id="mouseSensitivityAnswer" name="VideoMenu8" Value="On">
+	<label for="mouseSensitivityAnswer">Mouse Sensitivity</label><br>
+	<input type="radio" id="masterVolumeAnswer" name="VideoMenu8" Value="On">
+	<label for="masterVolumeAnswer">Master Volume</label><br>
+	<input type="radio" id="antialiasingAnswer" name="VideoMenu8" Value="On">
+	<label for="antialiasingAnswer">Antialiasing</label><br>
+	</b>
+	
+<p>Toggle Bloom</p>
+	<input type="radio" checked="checked" id="bloomToggleOn" name="VideoMenu9" Value="On">
+	<label for="bloomToggleOn">On</label>
+	<input type="radio" id="bloomToggleOff" name="VideoMenu9" Value="Off">
+	<label for="bloomToggleOff">Off</label><br>
+	
+<p>Toggle Lens Flare</p>
+	<input type="radio" checked="checked" id="lensFlareToggleOn" name="VideoMenu10" Value="On">
+	<label for="lensFlareToggleOn">On</label>
+	<input type="radio" id="lensFlareToggleOff" name="VideoMenu10" Value="Off">
+	<label for="lensFlareToggleOff">Off</label><br>
+	
+	</br>
+	
+    <div class="slidecontainer"> 
+	<p>Max FPS: <span id="maxFPSSlider"></span></p>
+	<input type="range" min="30" max="244" value="128" class="slider" id="maxFPS">
+	</div>
+	
+	<div class="slidecontainer"> 
+	<p>Gamma Brightness: <span id="gammaBrightnessSlider"></span></p>
+	<input type="range" min="-100" max="100" value="0" class="slider" id="gammaBrightness">
+	</div>
+	
+	<div class="slidecontainer"> 
+	<p>Screen Percentage: <span id="screenPercentageSlider"></span>%</p>
+	<input type="range" min="1" max="100" value="100" class="slider" id="screenPercentage">
+	</div>
+	
+	<div class="slidecontainer"> 
+	<p>Cascade Shadow Distance: <span id="shadowDistanceSlider"></span></p>
+	<input type="range" min="1" max="100" value="50" class="slider" id="shadowDistance">
+	</div>
+	
+	<div class="slidecontainer"> 
+	<p>Image Sharpening: <span id="imageSharpeningSlider"></span>p</p>
+	<input type="range" min="0" max="1440" value="1440" class="slider" id="imageSharpening">
+	</div>
+	
+	<div class="slidecontainer"> 
+	<p>Motion Blur: <span id="motionBlurSlider"></span>%</p>
+	<input type="range" min="0" max="100" value="100" class="slider" id="motionBlur">
+	</div>
+	
+<br>
+</br>
+
+</div>
+
+
+<div id="Multiplayer" class="tabcontent tabContentBorder">
+  <h3>Multiplayer</h3>
+	<label for="charName">Multiplayer Character Name:</label>
+	<input type="text" class="textInputStyle" value="Demon Guest" id="charName" name="charName">
+  
+	<br>
+	</br>
+  
+	<label for="lobbyName">Multiplayer Lobby Name:</label>
+	<input type="text" class="textInputStyle" value="Demon Lobby" id="lobbyName" name="lobbyName">
+	
+	<br>
+	</br>
+	
+<p>Character Nameplate and Ping Color</p>
+	<input type="radio" checked="checked" id="charColorRed" name="MultiplayerMenu1" Value="On">
+	<label for="charColorRed">Red</label><br>
+	<input type="radio" id="charColorGreen" name="MultiplayerMenu1" Value="On">
+	<label for="charColorGreen">Green</label><br>
+	<input type="radio" id="charColorBlue" name="MultiplayerMenu1" Value="On">
+	<label for="charColorBlue">Blue</label><br>
+	<input type="radio" id="charColorYellow" name="MultiplayerMenu1" Value="On">
+	<label for="charColorYellow">Yellow</label><br>
+	
+<p>Allow Duplicate Pitchforks</p>
+	<input type="radio" checked="checked" id="duplicatePitchforksOn" name="MultiplayerMenu2" Value="On">
+	<label for="duplicatePitchforksOn">Yes</label>
+	<input type="radio" id="duplicatePitchforksOff" name="MultiplayerMenu2" Value="Off">
+	<label for="duplicatePitchforksOff">No</label><br>
+	
+<p>Censor Voice Chat</p>
+	<input type="radio" id="censorVoiceChatOn" name="MultiplayerMenu3" Value="On">
+	<label for="censorVoiceChatOn">On</label>
+	<input type="radio" checked="checked" id="censorVoiceChatOff" name="MultiplayerMenu3" Value="Off">
+	<label for="censorVoiceChatOff">Off</label><br>
+	
+<p>Display Voice Chat as Text</p>
+	<input type="radio" id="dvcatOn" name="MultiplayerMenu4" Value="On">
+	<label for="dvcatOn">On</label>
+	<input type="radio" checked="checked" id="dvcatOff" name="MultiplayerMenu4" Value="Off">
+	<label for="dvcatOff">Off</label><br>
+	
+<p>Allow Mid-Game Joining</p>
+	<input type="radio" checked="checked" id="midGameJoiningOn" name="MultiplayerMenu5" Value="On">
+	<label for="midGameJoiningOn">On</label>
+	<input type="radio"id="midGameJoiningOff" name="MultiplayerMenu5" Value="Off">
+	<label for="midGameJoiningOff">Off</label><br>
+	
+<p>Enable XP Sharing</p>
+	<input type="radio" checked="checked" id="xpSharingOn" name="MultiplayerMenu6" Value="On">
+	<label for="xpSharingOn">On</label>
+	<input type="radio"id="xpSharingOff" name="MultiplayerMenu6" Value="Off">
+	<label for="xpSharingOff">Off</label><br>
+	
+<p>Show Nameplates</p>
+	<input type="radio" checked="checked" id="nameplatesOn" name="MultiplayerMenu7" Value="On">
+	<label for="nameplatesOn">On</label>
+	<input type="radio"id="nameplatesOff" name="MultiplayerMenu7" Value="Off">
+	<label for="nameplatesOff">Off</label><br>
+  
+  </br>
+</div>
+
+
+<div id="User Interface" class="tabcontent tabContentBorder">
+  <h3>User Interface</h3>
+	
+<p>Toggle HUD</p>
+	<input type="radio" checked="checked" id="toggleHUDOn" name="UIMenu1" Value="On">
+	<label for="toggleHUDOn">On</label>
+	<input type="radio" id="toggleHUDOff" name="UIMenu1" Value="Off">
+	<label for="toggleHUDOff">Off</label><br>
+	
+	<div class="slidecontainer"> 
+	<p>HUD Size: <span id="resizeHUDSlider"></span></p>
+	<input type="range" min="1" max="10" value="5" class="slider" id="resizeHUD">
+	</div>
+	
+<p>Toggle Radial Menus</p>
+	<input type="radio" checked="checked" id="toggleRadialMenusOn" name="UIMenu2" Value="On">
+	<label for="toggleRadialMenusOn">On</label>
+	<input type="radio" id="toggleRadialMenusOff" name="UIMenu2" Value="Off">
+	<label for="toggleRadialMenusOff">Off</label><br>
+	
+<p>Display Location Indicator Notifications</p>
+	<input type="radio" checked="checked" id="locationNotificationOn" name="UIMenu3" Value="On">
+	<label for="locationNotificationOn">On</label>
+	<input type="radio" id="locationNotificationOff" name="UIMenu3" Value="Off">
+	<label for="locationNotificationOff">Off</label><br>
+	
+<p>Display Level-Up Notifications</p>
+	<input type="radio" checked="checked" id="levelNotificationOn" name="UIMenu4" Value="On">
+	<label for="levelNotificationOn">On</label>
+	<input type="radio" id="levelNotificationOff" name="UIMenu4" Value="Off">
+	<label for="levelNotificationOff">Off</label><br>
+	
+<p>Show Enemy Nameplates</p>
+	<input type="radio" checked="checked" id="enemyNameplatesOn" name="UIMenu5" Value="On">
+	<label for="enemyNameplatesOn">On</label>
+	<input type="radio" id="enemyNameplatesOff" name="UIMenu5" Value="Off">
+	<label for="enemyNameplatesOff">Off</label><br>
+	
+<p>Display Missions On Screen</p>
+	<input type="radio" checked="checked" id="missionUIOn" name="UIMenu6" Value="On">
+	<label for="missionUIOn">On</label>
+	<input type="radio" id="missionUIOff" name="UIMenu6" Value="Off">
+	<label for="missionUIOff">Off</label><br>
+
+</br>
+</div>
+
+<button class="tabBorder" onclick="location.href='Game Conclusion.html';">Apply Changes</button>
+
+<script> 
+//tab script
+function openTab(evt, tabName) {
+	let i, tabcontent, tablinks; 
+	tabcontent = document.getElementsByClassName("tabcontent");
+	for (i = 0; i < tabcontent.length; i++) {
+	  tabcontent[i].style.display = "none";
+}
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace("active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += "active";
+}
+
+//slider script for Gameplay tab
+let slider = document.getElementById("fieldOfView");
+let output = document.getElementById("fieldOfViewSlider");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+	output.innerHTML = this.value;
+}
+
+let slider2 = document.getElementById("weaponSway");
+let output2 = document.getElementById("weaponSwaySlider");
+output2.innerHTML = slider2.value;
+
+slider2.oninput = function() {
+	output2.innerHTML = this.value;
+}
+
+//slider script for Controls tab
+
+let slider7 = document.getElementById("mouseSensitivity");
+let output7 = document.getElementById("mouseSensitivitySlider");
+output7.innerHTML = slider7.value;
+
+slider7.oninput = function() {
+	output7.innerHTML = this.value;
+}
+
+
+//slider script for Audio tab
+let slider3 = document.getElementById("masterVolume");
+let output3 = document.getElementById("masterVolumeSlider");
+output3.innerHTML = slider3.value;
+
+slider3.oninput = function() {
+	output3.innerHTML = this.value;
+}
+
+let slider4 = document.getElementById("musicVolume");
+let output4 = document.getElementById("musicVolumeSlider");
+output4.innerHTML = slider4.value;
+
+slider4.oninput = function() {
+	output4.innerHTML = this.value;
+}
+
+let slider5 = document.getElementById("sfx");
+let output5 = document.getElementById("sfxSlider");
+output5.innerHTML = slider5.value;
+
+slider5.oninput = function() {
+	output5.innerHTML = this.value;
+}
+
+let slider6 = document.getElementById("charVolume");
+let output6 = document.getElementById("charVolumeSlider");
+output6.innerHTML = slider6.value;
+
+slider6.oninput = function() {
+	output6.innerHTML = this.value;
+}
+
+//slider script for Video tab
+let slider8 = document.getElementById("maxFPS");
+let output8 = document.getElementById("maxFPSSlider");
+output8.innerHTML = slider8.value;
+
+slider8.oninput = function() {
+	output8.innerHTML = this.value;
+}
+
+let slider9 = document.getElementById("gammaBrightness");
+let output9 = document.getElementById("gammaBrightnessSlider");
+output9.innerHTML = slider9.value;
+
+slider9.oninput = function() {
+	output9.innerHTML = this.value;
+}
+
+let slider10 = document.getElementById("screenPercentage");
+let output10 = document.getElementById("screenPercentageSlider");
+output10.innerHTML = slider10.value;
+
+slider10.oninput = function() {
+	output10.innerHTML = this.value;
+}
+
+let slider11 = document.getElementById("shadowDistance");
+let output11 = document.getElementById("shadowDistanceSlider");
+output11.innerHTML = slider11.value;
+
+slider11.oninput = function() {
+	output11.innerHTML = this.value;
+}
+
+let slider12 = document.getElementById("imageSharpening");
+let output12 = document.getElementById("imageSharpeningSlider");
+output12.innerHTML = slider12.value;
+
+slider12.oninput = function() {
+	output12.innerHTML = this.value;
+}
+
+let slider13 = document.getElementById("motionBlur");
+let output13 = document.getElementById("motionBlurSlider");
+output13.innerHTML = slider13.value;
+
+slider13.oninput = function() {
+	output13.innerHTML = this.value;
+}
+
+let slider14 = document.getElementById("resizeHUD");
+let output14 = document.getElementById("resizeHUDSlider");
+output14.innerHTML = slider14.value;
+
+slider14.oninput = function() {
+	output14.innerHTML = this.value;
+}
+</script>
+
+</body>
+</html>
